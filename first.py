@@ -5,13 +5,13 @@ print(3 * 4)
 print(25 / 5)
 print(-5 * 5)
 print(-(-5 * 5))
-print(--5) # выведет 5
+print(--5) # выдаст 5
 print(+5)
 print(100/3)
 print(5 + 5.0)
-print(5**2) # степень
-print(20//6) # выведет 3
-print(20%6) # выведет 2
+print(5**2) # возведение в степень
+print(20//6) # целочисленное деление (тут ответ 3)
+print(20%6) # деление по модулю (тут ответ 2)
 
 print('Hi!!')
 print("Hi!!")
@@ -38,13 +38,15 @@ print(4 * "Привет") # 4 раза выводим Привет
 test = 'Test'
 test2 = 2
 print(test + str(test2)) # int() str() float()
-# 34test - ошибка. недьзя начинать с цифры переменную. Питон чувствительный к регистру
+# 34test - ошибка. нельзя начинать с цифры переменную. Питон чувствительный к регистру
 test = 10
 Test = 20
 print(test)
 print(Test)
 del test # удаляем переменную
 # МЕТАСИНТАКСИЧЕСКИЕ ПЕРМЕННЫЕ. Их всего две foo, bar
+# В основном они означают неизвестные переменные, обычно в случаях, когда их цель известна, а значение не важно. 
+# Их используют в качестве названий переменных, функций, команд и т.д. Сами по себе они бессмысленны и являются простыми логическими представлениями чего-либо, как x и y в алгебре.
 # In-Place (местные) операторы += -= *= /= %=
 test = 10
 test = test + 10
@@ -122,15 +124,16 @@ test = [1, 2, 3, [4, 5, 6]]
 print(test)
 print(test[2])	
 print(test[3][2])	
-	
+
+# списки	
 test = ['a', 'b', 'c', ['d', 'e', 'f']]	
 test = [1, 2, 3]
-print(test * 2) # дублирует строку 2 раза
+print(test * 2) # дублирует список 2 раза
 print(test + [4, 5, 6]) # добавляем	
 test = 'Tester'
 print(test[5])	
 test = ['Alex Ter', 'Tony Stark', 'Lenny Flawes']
-if 'Alex Ter' in test: # можно и с числами
+if 'Alex Ter' in test: # можно и с числами. оператор проверяет есть ли оно в списке
 	print('Pravda')
 	
 if "Sasha" not in test:
@@ -140,15 +143,15 @@ test = []
 test.append('Hi')
 test.append(3) # в конец списка
 test.append([1, 2])
-print(len(test))
+print(len(test)) # длина списка
 test.remove('Hi')
 print(len(test))
 test.insert(0, 'Hello') # вставляет на определенную позицию.
 print(test)
 test = [1, 2, 3, 4, 4, 4]
 print( max(test) ) # min
-print( test.count(4) )
-test.reverse() #переворачивает писок
+print( test.count(4) ) # возвращает количество упоминаний числа 4
+test.reverse() # переворачивает писок
 print(test)
 
 def print_spam():
@@ -178,7 +181,14 @@ print(say_hi.__doc__)
 
 say = say_hi
 say()
-# функции можно передать функцию!!! Урок 11
+# функция range() - создает список
+range(1,8) # [1, 2, 3, 4, 5, 6, 7]
+# функции можно передать функцию!!!
+def add(x, y):
+	return x + y
+def do_twice(func, x, y):
+	return func(func(x, y), func(x, y))
+print(do_twice(add, 10, 5))
 
 # модули
 import random
